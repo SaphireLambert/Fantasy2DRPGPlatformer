@@ -15,7 +15,7 @@ public class PlayerGroundedState : PlayerState
     public override void DoChecks()
     {
         base.DoChecks();
-        isGrounded = player.CheckIfGrounded();
+        isGrounded = core.CollisionSenses.Grounded;
     }
 
     public override void Enter()
@@ -36,7 +36,15 @@ public class PlayerGroundedState : PlayerState
         xinput = player.InputHandler.NormInputX;
         jumpInput = player.InputHandler.JumpInput;
 
-        if(jumpInput && player.JumpState.CanJump())
+        if (player.InputHandler.AttackInputs[(int)CombatInputs.primary])
+        {
+            stateMachiene.ChangeState(player.PrimaryAttackState);
+        }
+        else if (player.InputHandler.AttackInputs[(int)CombatInputs.secondary])
+        {
+            stateMachiene.ChangeState(player.SecondAttackState);
+        }
+        else if(jumpInput && player.JumpState.CanJump())
         {
             player.InputHandler.UseJumpInput();
             stateMachiene.ChangeState(player.JumpState);

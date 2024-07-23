@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerState
 {
+    protected Core core;
+
     protected Player player;  //Reference to script
     protected PlayerStateMachiene stateMachiene;  //Reference to script
     protected PlayerData playerData;  //Reference to script
@@ -20,6 +22,7 @@ public class PlayerState
         this.stateMachiene = stateMachiene;
         this.playerData = playerData;
         this.animBoolName = animBoolName;
+        core = player.Core;
     }
 
     public virtual void Enter() //Function for entering the state
