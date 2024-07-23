@@ -7,8 +7,20 @@ public class PlayerInputHandler : MonoBehaviour
 {
     public Vector2 RawMovementInput { get; private set; } //the value for the movemnet input range -1 to 1
 
-    public int NormInputX {  get; private set; } //Makes the x input either equal -1, 0, 1 (No Decimals)
-    public int NormInputY { get; private set; } //Makes the y input either equal -1, 0, 1 (No Decimals)
+    public int NormInputX {  get; private set; } //Value for the x input that either equals -1, 0, 1 (No Decimals)
+    public int NormInputY { get; private set; } //Value for the y input that either equals -1, 0, 1 (No Decimals)
+    public bool JumpInput {  get; private set; }
+    public bool JumpInputStop { get; private set; }
+
+    [SerializeField]
+    private float inputHoldTime = 0.15f;
+
+    private float jumpInputStartTime;
+
+    private void Update()
+    {
+        CheckJumpInputHoldTime();
+    }
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
@@ -18,7 +30,26 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void OnJumpInput(InputAction.CallbackContext context) 
     {
+        if(context.started)
+        {
+            JumpInput = true;
+            jumpInputStartTime = Time.time; 
+            JumpInputStop = false;  
+        }
+        if(context.canceled)
+        {
+            JumpInputStop = true;
+        }
+    }
 
+    public void UseJumpInput() => JumpInput = false;    
+
+    private void CheckJumpInputHoldTime()
+    {
+        if(Time.time >= jumpInputStartTime + inputHoldTime)
+        {
+            JumpInput = false;
+        }
     }
 
 }

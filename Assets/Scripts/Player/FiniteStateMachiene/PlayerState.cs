@@ -8,6 +8,8 @@ public class PlayerState
     protected PlayerStateMachiene stateMachiene;  //Reference to script
     protected PlayerData playerData;  //Reference to script
 
+    protected bool isAnimationFinished;
+
     protected float startTime; //The starting time for the state/animation
 
     private string animBoolName;  //The name for the animation bool in the animation controller
@@ -25,6 +27,7 @@ public class PlayerState
         DoChecks();
         player.Animator.SetBool(animBoolName, true);
         startTime = Time.time;
+        isAnimationFinished = false;
     }
 
     public virtual void Exit() //Function for exiting the state
@@ -47,4 +50,13 @@ public class PlayerState
 
     }
 
+    public virtual void AnimationTrigger()
+    {
+
+    }
+
+    public virtual void AnimationFinishTrigger()
+    {
+        isAnimationFinished = true;
+    }
 }
