@@ -8,7 +8,7 @@ public class CombatTestGoblin : MonoBehaviour, IDamageable
 
     public void Damage(float amount)
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     private void Awake()

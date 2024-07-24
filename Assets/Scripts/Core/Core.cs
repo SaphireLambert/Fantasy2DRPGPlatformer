@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class Core : MonoBehaviour
 {
-    public Movement Movement {  get; private set; }
-    public CollisionSenses CollisionSenses { get; private set; }
-    public Combat Combat { get; private set; }
+    public Movement Movement 
+    {
+        get => GenericNotImplimentedError<Movement>.TryGet(movement, transform.parent.name);
+        private set => movement = value;
+    }
+    public CollisionSenses CollisionSenses 
+    { 
+        get => GenericNotImplimentedError<CollisionSenses>.TryGet(collisionSenses, transform.parent.name);
+        private set => collisionSenses = value; 
+    }
+    public Combat Combat 
+    { 
+        get => GenericNotImplimentedError<Combat>.TryGet(combat, transform.parent.name);
+        private set => combat = value; 
+    }
 
     private Movement movement;
     private CollisionSenses collisionSenses;
@@ -16,11 +28,7 @@ public class Core : MonoBehaviour
     {
         Movement = GetComponentInChildren<Movement>();
         CollisionSenses = GetComponentInChildren<CollisionSenses>();
-
-        if (!Movement)
-        {
-            Debug.LogError("Missing Core Component");
-        }
+        Combat = GetComponentInChildren<Combat>();
     }
     public void LogicUpdate()
     {

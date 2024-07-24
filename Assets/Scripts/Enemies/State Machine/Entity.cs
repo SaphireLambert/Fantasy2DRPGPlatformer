@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public EnemiesFiniteStateMachiene stateMachiene;
+
+    public Animator Animator { get; private set; }
+
+    public Core Core { get; private set; }
+
+    public virtual void Awake()
     {
-        
+        Core = GetComponentInChildren<Core>();
+        Animator = GetComponent<Animator>();
+
+        stateMachiene = new EnemiesFiniteStateMachiene();
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
-        
+        stateMachiene.CurrentState.LogicUpdate();
+
+        Animator.SetFloat("YVelocity", Core.Movement.RB.velocity.y);
+    }
+    public virtual void FixedUpdate()
+    {
+        stateMachiene.CurrentState.PhysicsUpdate();
     }
 }
