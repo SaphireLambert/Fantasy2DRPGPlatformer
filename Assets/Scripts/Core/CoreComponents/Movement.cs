@@ -26,7 +26,7 @@ public class Movement : CoreComponent
     }
 
     #region Set Functions
-    public void SetVelocity(float velocity, Vector2 angle, int direction)
+    public void SetKnockbackVelocity(float velocity, Vector2 angle, int direction) //In tutorial Series this is called SetVelocity():
     {
         angle.Normalize();
         workSpace.Set(angle.x * velocity * direction, angle.y * velocity);
