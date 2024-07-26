@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CollisionSenses : CoreComponent
@@ -32,23 +33,23 @@ public class CollisionSenses : CoreComponent
     [SerializeField] 
     private float groundCheckRadius = 0.3f;
     [SerializeField]
-    private float wallCheckDistance = 0.4f;
+    private float wallCheckDistance = 0.1f;
     [SerializeField]
-    private float ledgeCheckDistance = 0.7f;
+    private float ledgeCheckDistance = 0.3f;
     [SerializeField]
-    private LayerMask whatIsGround;
+    private LayerMask whatIsGround = 3;
     #endregion
 
     #region Check Functions
-    public bool Grounded
+    public bool isGroundedProperty //Returns true if the character is on the ground
     {
         get => Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
     }
-    public bool Wall
+    public bool isHittingWallProperty //returns true when the character come in contact with a wall
     {
-        get => Physics2D.Raycast(wallCheck.position, Vector2.right, wallCheckDistance, whatIsGround);
+        get => Physics2D.Raycast(wallCheck.position, Vector2.right, wallCheckDistance);
     }
-    public bool LedgeVertical
+    public bool isOnLedgeProperty //Returns false if the character has found a ledge: Returns true if there is no ledge
     {
         get => Physics2D.Raycast(ledgeCheckVertical.position, Vector2.down, ledgeCheckDistance, whatIsGround);    
     }

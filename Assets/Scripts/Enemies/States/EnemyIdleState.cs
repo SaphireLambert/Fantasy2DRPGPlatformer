@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyIdleState : EnemiesState
@@ -23,6 +24,7 @@ public class EnemyIdleState : EnemiesState
         core.Movement.SetVelocityX(0);
         isIdleTimeOver = false;
         SetRandomIdleTime();
+
     }
 
     public override void Exit()
@@ -56,4 +58,5 @@ public class EnemyIdleState : EnemiesState
     {
         idleTime = Random.Range(stateData.minIdleTime, stateData.maxIdleTime);
     }
+
 }

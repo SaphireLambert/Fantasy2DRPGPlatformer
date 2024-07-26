@@ -18,8 +18,12 @@ public class EnemyMoveState : EnemiesState
         base.Enter();
         core.Movement.SetVelocityX(stateData.MovementSpeed * core.Movement.FacingDirection);
 
-        isDetectingLedge = core.CollisionSenses.LedgeCheckVertical;
-        isDetectingWall = core.CollisionSenses.WallCheck;
+        isDetectingLedge = core.CollisionSenses.isOnLedgeProperty;
+        Debug.Log("Is on ledge is set to " + isDetectingLedge);
+
+        isDetectingWall = core.CollisionSenses.isHittingWallProperty;
+        Debug.Log("Is Touching wall is set to" + isDetectingWall);
+
     }
 
     public override void Exit()
@@ -30,14 +34,14 @@ public class EnemyMoveState : EnemiesState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        core.Movement.SetVelocityX(stateData.MovementSpeed * core.Movement.FacingDirection);
+        core.Movement.SetVelocityX(stateData.MovementSpeed * core.Movement.FacingDirection);    
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
 
-        isDetectingLedge = core.CollisionSenses.LedgeCheckVertical;
-        isDetectingWall = core.CollisionSenses.WallCheck;
+        isDetectingLedge = core.CollisionSenses.isOnLedgeProperty;
+        isDetectingWall = core.CollisionSenses.isHittingWallProperty;
     }
 }

@@ -28,4 +28,5 @@ public class Entity : MonoBehaviour
     {
         stateMachiene.CurrentState.PhysicsUpdate();
     }
+
 }
