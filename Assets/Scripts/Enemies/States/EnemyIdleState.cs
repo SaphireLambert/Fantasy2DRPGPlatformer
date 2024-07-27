@@ -10,6 +10,7 @@ public class EnemyIdleState : EnemiesState
 
     protected bool flipAfterIdle;
     protected bool isIdleTimeOver;
+    protected bool isPlayerInMinAgroRange;
 
     protected float idleTime;
 
@@ -18,13 +19,18 @@ public class EnemyIdleState : EnemiesState
         this.stateData = stateData;
     }
 
+    public override void DoChecks()
+    {
+        base.DoChecks();
+        isPlayerInMinAgroRange = entity.isPlayerInMinAgroRangeBool;
+    }
+
     public override void Enter()
     {
         base.Enter();
         core.Movement.SetVelocityX(0);
         isIdleTimeOver = false;
         SetRandomIdleTime();
-
     }
 
     public override void Exit()
@@ -39,8 +45,9 @@ public class EnemyIdleState : EnemiesState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        core.Movement.SetVelocityX(0);
 
-        if(Time.time >= startTime + idleTime)
+        if (Time.time >= startTime + idleTime)
         {
             isIdleTimeOver = true;
         }

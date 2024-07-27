@@ -19,11 +19,15 @@ public class EnemiesState
         this.animBoolName = animBoolName;
         core = entity.Core;  
     }
-    
+    public virtual void DoChecks()
+    {
+
+    }
     public virtual void Enter()
     {
         startTime = Time.time;
         entity.Animator.SetBool(animBoolName, true);
+        DoChecks();
     }
 
     public virtual void Exit() 
@@ -37,6 +41,6 @@ public class EnemiesState
     }
     public virtual void PhysicsUpdate()
     {
-
+        DoChecks();
     }
 }

@@ -23,7 +23,12 @@ public class GS_IdleState : EnemyIdleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if(isIdleTimeOver)
+
+        if (isPlayerInMinAgroRange)
+        {
+            stateMachine.ChangeState(goblin_spear.detectedPlayerState);
+        }
+        else if(isIdleTimeOver)
         {
             stateMachine.ChangeState(goblin_spear.moveState);
         }

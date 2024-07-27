@@ -23,6 +23,12 @@ public class GS_MoveState : EnemyMoveState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
+        if (isPlayerInMinAgroRange)
+        {
+            stateMachine.ChangeState(goblin_spear.detectedPlayerState);
+        }
+
         if (isDetectingWall || !isDetectingLedge)
         {
             goblin_spear.idleState.SetFlipAfterIdle(true);

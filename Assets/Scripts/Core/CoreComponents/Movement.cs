@@ -8,6 +8,8 @@ public class Movement : CoreComponent
     public int FacingDirection {  get; private set; }
     public Vector2 CurrentVelocity {  get; private set; }
 
+    public bool CanSetVelocity { get; set; }
+
     private Vector2 workSpace;
 
     protected override void Awake()
@@ -17,6 +19,8 @@ public class Movement : CoreComponent
         RB = GetComponentInParent<Rigidbody2D>();
 
         FacingDirection = 1;
+
+        CanSetVelocity = true;
     }
 
 
@@ -30,21 +34,28 @@ public class Movement : CoreComponent
     {
         angle.Normalize();
         workSpace.Set(angle.x * velocity * direction, angle.y * velocity);
-        RB.velocity = workSpace;
-        CurrentVelocity = workSpace;
+        SetFinalVelocity();
     }
     public void SetVelocityX(float velocity)
     {
         workSpace.Set(velocity, CurrentVelocity.y);
-        RB.velocity = workSpace;
-        CurrentVelocity = workSpace;
+        SetFinalVelocity();
     }
     public void SetVelocityY(float velocity)
     {
         workSpace.Set(CurrentVelocity.x, velocity);
-        RB.velocity = workSpace;
-        CurrentVelocity = workSpace;
+        SetFinalVelocity();
     }
+
+    private void SetFinalVelocity()
+    {
+        if(CanSetVelocity)
+        {
+            RB.velocity = workSpace;
+            CurrentVelocity = workSpace;
+        }  
+    }
+
     public void Flip()
     {
         FacingDirection *= -1;

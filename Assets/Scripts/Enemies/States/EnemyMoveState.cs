@@ -8,22 +8,29 @@ public class EnemyMoveState : EnemiesState
 
     protected bool isDetectingWall;
     protected bool isDetectingLedge;
+    protected bool isPlayerInMinAgroRange;
+
     public EnemyMoveState(Entity entity, EnemiesFiniteStateMachiene stateMachine, string animBoolName, D_EnemyMoveState stateData) : base(entity, stateMachine, animBoolName)
     {
         this.stateData = stateData;
+    }
+
+    public override void DoChecks()
+    {
+        base.DoChecks();
+
+        isDetectingLedge = core.CollisionSenses.isOnLedgeBool;
+        //Debug.Log("I am not on a ledge = " + isDetectingLedge);
+        isDetectingWall = core.CollisionSenses.isHittingWallBool;
+        //Debug.Log("I can see a wall = " + isDetectingWall);
+        isPlayerInMinAgroRange = entity.isPlayerInMinAgroRangeBool;
+        //Debug.Log("I can see the player = " + isPlayerInMinAgroRange);
     }
 
     public override void Enter()
     {
         base.Enter();
         core.Movement.SetVelocityX(stateData.MovementSpeed * core.Movement.FacingDirection);
-
-        isDetectingLedge = core.CollisionSenses.isOnLedgeProperty;
-        Debug.Log("Is on ledge is set to " + isDetectingLedge);
-
-        isDetectingWall = core.CollisionSenses.isHittingWallProperty;
-        Debug.Log("Is Touching wall is set to" + isDetectingWall);
-
     }
 
     public override void Exit()
@@ -40,8 +47,5 @@ public class EnemyMoveState : EnemiesState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-
-        isDetectingLedge = core.CollisionSenses.isOnLedgeProperty;
-        isDetectingWall = core.CollisionSenses.isHittingWallProperty;
     }
 }

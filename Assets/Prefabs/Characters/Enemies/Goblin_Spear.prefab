@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6489697625272483599}
   - component: {fileID: 8561963818762112975}
   - component: {fileID: 546792798866172253}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Combat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.040955663, y: -0.78839815}
+  m_Offset: {x: -0.08205098, y: -0.78839815}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -88,7 +88,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.59044266, y: 1.1023896}
+  m_Size: {x: 0.6726333, y: 1.1023896}
   m_EdgeRadius: 0
 --- !u!1 &2667185082029109677
 GameObject:
@@ -115,7 +115,7 @@ Transform:
   m_GameObject: {fileID: 2667185082029109677}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.398, y: -1.295, z: 0}
+  m_LocalPosition: {x: 0.352, y: -1.276, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -171,10 +171,10 @@ MonoBehaviour:
   groundCheck: {fileID: 9032917546833949547}
   wallCheck: {fileID: 2005921407456967582}
   ledgeCheckVertical: {fileID: 5537679926740305539}
-  groundCheckRadius: 0.5
-  wallCheckDistance: 0
-  ledgeCheckDistance: 0
-  whatIsGround:
+  groundCheckRadius: 0.1
+  wallCheckDistance: 0.2
+  ledgeCheckDistance: 0.4
+  groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
 --- !u!1 &3886428500292252087
@@ -202,11 +202,42 @@ Transform:
   m_GameObject: {fileID: 3886428500292252087}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.399, y: -0.543, z: 0}
+  m_LocalPosition: {x: 0.647, y: -0.309, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5181285125854127358}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4346838591961720408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4971056630432193585}
+  m_Layer: 8
+  m_Name: AttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4971056630432193585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4346838591961720408}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.74, y: -0.54, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4405384622867220976}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4590112655962689489
 GameObject:
@@ -299,6 +330,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca7fd0a5b40e5940bbb90e990964076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7420714869932113681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1657632176764537161}
+  m_Layer: 8
+  m_Name: DetectedPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1657632176764537161
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420714869932113681}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.078, y: -0.369, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4405384622867220976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8104431550490876011
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +386,7 @@ Transform:
   m_GameObject: {fileID: 8104431550490876011}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.109, y: -1.331, z: 0}
+  m_LocalPosition: {x: -0.109, y: -1.302, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -343,6 +405,7 @@ GameObject:
   - component: {fileID: 3542366401087286053}
   - component: {fileID: 500049953660404439}
   - component: {fileID: 7506068301201385594}
+  - component: {fileID: 7617151849436115964}
   - component: {fileID: 7122946833616702289}
   m_Layer: 8
   m_Name: Goblin_Spear
@@ -365,6 +428,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7344643582122760323}
+  - {fileID: 1657632176764537161}
+  - {fileID: 4971056630432193585}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1780309103971689677
@@ -502,6 +567,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7617151849436115964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8652841141664733931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 323f7efc6b5281c42ba7642f02b9ce0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7122946833616702289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,5 +591,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca76f47c21f3cd241875f2954804ccf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityData: {fileID: 11400000, guid: cd50285c077e9ea488b35b3be9dcee02, type: 2}
+  playerCheck: {fileID: 1657632176764537161}
   idleStateData: {fileID: 11400000, guid: b124f4bf7150bc74d88ad3ca798ea975, type: 2}
   moveStateData: {fileID: 11400000, guid: 0c2d759947fd13f4cb5663760e61b99c, type: 2}
+  detectPlayerStateData: {fileID: 11400000, guid: b6815d0e8542e2d47b14c0b60d6466f1, type: 2}
+  chargeStateData: {fileID: 11400000, guid: f8c6653c0e4900245b23233c4b94e346, type: 2}
+  lookForPlayerStateData: {fileID: 11400000, guid: e09b38e7bf49ec34da0021bf19ce821c, type: 2}
+  meleeAttackStateData: {fileID: 11400000, guid: 599b2185ce6c20748a91febe5ce5c99a, type: 2}
+  meleeAttackPosition: {fileID: 4971056630432193585}
