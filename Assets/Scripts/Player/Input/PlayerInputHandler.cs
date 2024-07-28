@@ -35,8 +35,6 @@ public class PlayerInputHandler : MonoBehaviour
         AttackInputs = new bool[count];
     }
 
-
-
     private void Update()
     {
         CheckJumpInputHoldTime();
@@ -92,6 +90,14 @@ public class PlayerInputHandler : MonoBehaviour
         if(Time.time >= jumpInputStartTime + inputHoldTime)
         {
             JumpInput = false;
+        }
+    }
+
+    public void OnPlaceSign(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            //Place the sign
         }
     }
 
