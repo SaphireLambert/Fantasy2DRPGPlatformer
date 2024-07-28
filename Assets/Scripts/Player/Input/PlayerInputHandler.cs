@@ -12,6 +12,10 @@ public enum CombatInputs
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    //I don't know how else to impliment this;
+    [SerializeField] private Transform signSpawn;
+    [SerializeField] private GameObject sign;
+
     public Vector2 RawMovementInput { get; private set; } //the value for the movemnet input range -1 to 1
 
     public int NormInputX {  get; private set; } //Value for the x input that either equals -1, 0, 1 (No Decimals)
@@ -98,6 +102,7 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             //Place the sign
+            Instantiate(sign, signSpawn.position, Quaternion.identity);
         }
     }
 

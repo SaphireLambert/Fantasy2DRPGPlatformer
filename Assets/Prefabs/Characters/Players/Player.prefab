@@ -631,6 +631,7 @@ Transform:
   - {fileID: 2867528518845871599}
   - {fileID: 2826606469564624080}
   - {fileID: 2636198500749479360}
+  - {fileID: 2389579535940919603}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2179351294967882887
@@ -672,7 +673,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 10138997
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 1230708137, guid: 05f7148994b4dec4d99c1eb2de216b06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -744,8 +745,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5975553}
-  m_Size: {x: 0.44639623, y: 1.4675162}
+  m_Offset: {x: 0, y: -0.5314307}
+  m_Size: {x: 0.44639623, y: 1.3352671}
   m_Direction: 0
 --- !u!95 &9074951043424840128
 Animator:
@@ -890,6 +891,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c1895f26c5588418af23dfc0d70b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  signSpawn: {fileID: 2389579535940919603}
+  sign: {fileID: 1335328004873671730, guid: 3b97c13eaa580454d9e1aa0fb3eae358, type: 3}
   inputHoldTime: 0.15
 --- !u!114 &6447682300078408566
 MonoBehaviour:
@@ -991,7 +994,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 10138997
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: -110812914, guid: deaa7e6c61451894e89df8d4ae465187, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1111,7 +1114,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 10138997
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 2
   m_Sprite: {fileID: -1320508499, guid: 5f3d79bf0d6012f4fbf696c80d2c72e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1424,3 +1427,34 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &8295319126014652847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2389579535940919603}
+  m_Layer: 7
+  m_Name: SpawnSignPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2389579535940919603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8295319126014652847}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.214, y: -1.311, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6160135617207943596}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
