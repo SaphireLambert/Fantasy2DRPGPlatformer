@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class PlayerInAirState : PlayerState
 {
+    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
+    private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
+    private CollisionSenses collisionSenses;
+
     private int xInput;
+
     private bool isGrounded;
     private bool jumpInput;
     private bool jumpInputStop;
     private bool coyoteTime;
     private bool isJumping;
+
     public PlayerInAirState(Player player, PlayerStateMachiene stateMachiene, PlayerData playerData, string animBoolName) : base(player, stateMachiene, playerData, animBoolName)
     {
     }
@@ -17,7 +25,10 @@ public class PlayerInAirState : PlayerState
     public override void DoChecks()
     {
         base.DoChecks();
-        isGrounded = core.CollisionSenses.isGroundedBool;
+        if(CollisionSenses)
+        {
+            isGrounded = CollisionSenses.isGroundedBool;
+        } 
     }
 
     public override void Enter()
@@ -50,7 +61,7 @@ public class PlayerInAirState : PlayerState
         {
             stateMachiene.ChangeState(player.SecondAttackState);
         }
-        else if (isGrounded && core.Movement.CurrentVelocity.y < 0.01f)
+        else if (isGrounded && Movement?.CurrentVelocity.y < 0.01f)
         {
             stateMachiene.ChangeState(player.LandState);
         }
@@ -60,23 +71,24 @@ public class PlayerInAirState : PlayerState
         }
         else
         {
-            core.Movement.CheckIfShouldFlip(xInput);
-            core.Movement.SetVelocityX(playerData.movementVelocity * xInput);
+            Movement?.CheckIfShouldFlip(xInput);
+            Movement?.SetVelocityX(playerData.movementVelocity * xInput);
 
-            player.Animator.SetFloat("YVelocity", core.Movement.CurrentVelocity.y);
+            player.Animator.SetFloat("YVelocity", Movement.CurrentVelocity.y);
         }
     }
 
+    //This makes it so when the long the player presses the jump button the higher they jump;
     private void CheckJumpMultiplier()
     {
         if (isJumping)
         {
             if (jumpInputStop)
             {
-                core.Movement.SetVelocityY(core.Movement.CurrentVelocity.y * playerData.variableJumpHeightMultiplier);
+                Movement?.SetVelocityY(Movement.CurrentVelocity.y * playerData.variableJumpHeightMultiplier);
                 isJumping = false;
             }
-            else if (core.Movement.CurrentVelocity.y <= 0)
+            else if (Movement.CurrentVelocity.y <= 0)
             {
                 isJumping = false;
             }
@@ -89,6 +101,10 @@ public class PlayerInAirState : PlayerState
 
     }
 
+/// <summary>
+/// These functions allow the player to jump even if they are late to the button press (this is called cyote time)
+/// This makes the game feel more fluid and less rigid making for a better player experience. 
+/// </summary>
     private void CheckCoyoteTime()
     {
         if(coyoteTime && Time.time > startTime + playerData.coyoteTime)
@@ -102,5 +118,6 @@ public class PlayerInAirState : PlayerState
     {
         coyoteTime = true;
     }
+
     public void SetIsJumping() => isJumping = true;
 }

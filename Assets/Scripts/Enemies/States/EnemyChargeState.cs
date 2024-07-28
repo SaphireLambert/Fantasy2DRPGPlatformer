@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class EnemyChargeState : EnemiesState
 {
+    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+
+    private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
+
+    private Movement movement;
+    private CollisionSenses collisionSenses;
+
     protected D_EnemyChargeState stateData;
 
     protected bool isPlayerInMinAgroRange;
@@ -21,16 +28,21 @@ public class EnemyChargeState : EnemiesState
     {
         base.DoChecks();
         isPlayerInMinAgroRange = entity.isPlayerInMinAgroRangeBool;
-        isDetectingLedge = core.CollisionSenses.isOnLedgeBool;
-        isDetectingWall = core.CollisionSenses.isHittingWallBool;
         performCloseRangeAction = entity.isPlayerInCloseRangeActionBool;
+
+        if (CollisionSenses)
+        {
+            isDetectingLedge = CollisionSenses.isOnLedgeBool;
+            isDetectingWall = CollisionSenses.isHittingWallBool;
+        }
+        
     }
 
     public override void Enter()
     {
         base.Enter();
 
-        core.Movement.SetVelocityX(stateData.chargeSpeed * core.Movement.FacingDirection);
+        Movement?.SetVelocityX(stateData.chargeSpeed * Movement.FacingDirection);
         isChargeTimeOver = false;
     }
 
@@ -42,7 +54,7 @@ public class EnemyChargeState : EnemiesState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        core.Movement.SetVelocityX(stateData.chargeSpeed * core.Movement.FacingDirection);
+        Movement?.SetVelocityX(stateData.chargeSpeed * Movement.FacingDirection);
         if (Time.time >= startTime + stateData.chargeTime)
         {
             isChargeTimeOver = true;

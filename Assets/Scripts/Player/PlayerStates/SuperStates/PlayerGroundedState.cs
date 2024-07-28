@@ -6,6 +6,12 @@ public class PlayerGroundedState : PlayerState
 {
     protected int xinput;
 
+    protected Movement Movement { get=> movement??= core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
+    private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); } 
+    private CollisionSenses collisionSenses;
+
     private bool jumpInput;
     private bool isGrounded;
     public PlayerGroundedState(Player player, PlayerStateMachiene stateMachiene, PlayerData playerData, string animBoolName) : base(player, stateMachiene, playerData, animBoolName)
@@ -15,7 +21,10 @@ public class PlayerGroundedState : PlayerState
     public override void DoChecks()
     {
         base.DoChecks();
-        isGrounded = core.CollisionSenses.isGroundedBool;
+        if ((CollisionSenses))
+        {
+            isGrounded = CollisionSenses.isGroundedBool;
+        }
     }
 
     public override void Enter()

@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Entity : MonoBehaviour
 {
+    protected Movement Movement { get => movement ??= Core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
     public EnemiesFiniteStateMachiene stateMachiene;
 
     public D_Entity entityData;
@@ -30,7 +34,7 @@ public class Entity : MonoBehaviour
     {
         stateMachiene.CurrentState.LogicUpdate();
 
-        Animator.SetFloat("YVelocity", Core.Movement.RB.velocity.y);
+        Animator.SetFloat("YVelocity", Movement.RB.velocity.y);
     }
     public virtual void FixedUpdate()
     {

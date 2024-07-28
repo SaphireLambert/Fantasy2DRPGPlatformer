@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class EnemyIdleState : EnemiesState
 {
+    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
     protected D_EnemyIdleState stateData;
 
     protected bool flipAfterIdle;
@@ -28,7 +31,7 @@ public class EnemyIdleState : EnemiesState
     public override void Enter()
     {
         base.Enter();
-        core.Movement.SetVelocityX(0);
+        Movement?.SetVelocityX(0);
         isIdleTimeOver = false;
         SetRandomIdleTime();
     }
@@ -38,14 +41,14 @@ public class EnemyIdleState : EnemiesState
         base.Exit();
         if(flipAfterIdle)
         {
-            core.Movement.Flip();
+            Movement?.Flip();
         }
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        core.Movement.SetVelocityX(0);
+        Movement?.SetVelocityX(0);
 
         if (Time.time >= startTime + idleTime)
         {

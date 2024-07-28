@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class EnemyLookForPlayerState : EnemiesState
 {
+    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
+    private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
+    private CollisionSenses collisionSenses;
+
     protected D_EnemyLookForPlayer stateData;
 
     protected bool turnImmediatley;
@@ -37,7 +43,7 @@ public class EnemyLookForPlayerState : EnemiesState
         lastTurnTime = startTime;
         amountOfTurnsDone = 0;
 
-        core.Movement.SetVelocityX(0);
+        Movement?.SetVelocityX(0);
     }
 
     public override void Exit()
@@ -49,18 +55,18 @@ public class EnemyLookForPlayerState : EnemiesState
     {
         base.LogicUpdate();
 
-        core.Movement.SetVelocityX(0);
+        Movement?.SetVelocityX(0);
 
         if (turnImmediatley)
         {
-            core.Movement.Flip();
+            Movement?.Flip();
             lastTurnTime = Time.time;
             amountOfTurnsDone++;
             turnImmediatley = false;
         }
         else if(Time.time >= lastTurnTime + stateData.timeBetweenTurns && !isAllTurnsDone)
         {
-            core.Movement.Flip();
+            Movement?.Flip();
             lastTurnTime = Time.time;
             amountOfTurnsDone++;
         }

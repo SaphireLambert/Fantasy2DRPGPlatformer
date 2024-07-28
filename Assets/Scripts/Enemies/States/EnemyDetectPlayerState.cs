@@ -8,6 +8,9 @@ using UnityEngine;
 /// </summary>
 public class EnemyDetectPlayerState : EnemiesState
 {
+    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
     protected D_EnemyDetectPlayer stateData;
 
     protected bool isPlayerInMinAgroRange;
@@ -31,7 +34,7 @@ public class EnemyDetectPlayerState : EnemiesState
     public override void Enter()
     {
         base.Enter();
-        core.Movement.SetVelocityX(0);
+        Movement?.SetVelocityX(0);
         performLongRangeAction = false;
     }
 
@@ -44,7 +47,7 @@ public class EnemyDetectPlayerState : EnemiesState
     {
         base.LogicUpdate();
 
-        core.Movement.SetVelocityX(0);
+        Movement?.SetVelocityX(0);
 
         if (Time.time >= startTime + stateData.longRangeActionTime)
         {

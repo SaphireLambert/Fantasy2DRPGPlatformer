@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemiesState
 {
+    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
     protected Transform attackPosition;
 
     protected bool isAnimationFinished;
@@ -26,7 +29,7 @@ public class EnemyAttackState : EnemiesState
 
         entity.animationToStateMachine.attackState = this;
         isAnimationFinished = false;
-        core.Movement.SetVelocityX(0f);
+        Movement?.SetVelocityX(0f);
     }
 
     public override void Exit()
@@ -37,7 +40,7 @@ public class EnemyAttackState : EnemiesState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        core.Movement.SetVelocityX(0f);
+        Movement?.SetVelocityX(0f);
     }
 
     public override void PhysicsUpdate()

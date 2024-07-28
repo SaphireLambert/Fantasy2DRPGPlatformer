@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class EnemyMoveState : EnemiesState
 {
+    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
+    private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
+    private CollisionSenses collisionSenses;
+
     protected D_EnemyMoveState stateData;
 
     protected bool isDetectingWall;
@@ -19,10 +25,13 @@ public class EnemyMoveState : EnemiesState
     {
         base.DoChecks();
 
-        isDetectingLedge = core.CollisionSenses.isOnLedgeBool;
-        //Debug.Log("I am not on a ledge = " + isDetectingLedge);
-        isDetectingWall = core.CollisionSenses.isHittingWallBool;
-        //Debug.Log("I can see a wall = " + isDetectingWall);
+        if (CollisionSenses)
+        {
+            isDetectingLedge = CollisionSenses.isOnLedgeBool;
+            //Debug.Log("I am not on a ledge = " + isDetectingLedge);
+            isDetectingWall = CollisionSenses.isHittingWallBool;
+            //Debug.Log("I can see a wall = " + isDetectingWall);
+        }
         isPlayerInMinAgroRange = entity.isPlayerInMinAgroRangeBool;
         //Debug.Log("I can see the player = " + isPlayerInMinAgroRange);
     }
@@ -30,7 +39,7 @@ public class EnemyMoveState : EnemiesState
     public override void Enter()
     {
         base.Enter();
-        core.Movement.SetVelocityX(stateData.MovementSpeed * core.Movement.FacingDirection);
+        Movement?.SetVelocityX(stateData.MovementSpeed * Movement.FacingDirection);
     }
 
     public override void Exit()
@@ -41,7 +50,7 @@ public class EnemyMoveState : EnemiesState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        core.Movement.SetVelocityX(stateData.MovementSpeed * core.Movement.FacingDirection);    
+        Movement?.SetVelocityX(stateData.MovementSpeed * Movement.FacingDirection);    
     }
 
     public override void PhysicsUpdate()

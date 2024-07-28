@@ -2,16 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class contains all the informationa and logic to control 
+/// the characters movement. This can be attacked to any character 
+/// with a Core component to make them able to move
+/// </summary>
+
 public class Movement : CoreComponent
 {
+    #region Variables + Properties
     public Rigidbody2D RB {  get; private set; }
+
     public int FacingDirection {  get; private set; }
+
     public Vector2 CurrentVelocity {  get; private set; }
 
     public bool CanSetVelocity { get; set; }
 
-    private Vector2 workSpace;
 
+    private Vector2 workSpace;
+    #endregion
+
+    #region Unity Functions
     protected override void Awake()
     {
         base.Awake();
@@ -23,11 +35,11 @@ public class Movement : CoreComponent
         CanSetVelocity = true;
     }
 
-
-    public void LogicUpdate()
+    public override void LogicUpdate()
     {
         CurrentVelocity = RB.velocity;
     }
+    #endregion
 
     #region Set Functions
     public void SetKnockbackVelocity(float velocity, Vector2 angle, int direction) //In tutorial Series this is called SetVelocity():
