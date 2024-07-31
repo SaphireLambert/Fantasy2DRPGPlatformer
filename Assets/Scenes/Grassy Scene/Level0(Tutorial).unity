@@ -234,19 +234,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 588018749581226581, guid: 487692deedfea7f4e86f4779532f4eb2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 588018749581226581, guid: 487692deedfea7f4e86f4779532f4eb2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3542366401087286053, guid: 487692deedfea7f4e86f4779532f4eb2, type: 3}
-      propertyPath: m_Size.y
-      value: 0.98007154
-      objectReference: {fileID: 0}
-    - target: {fileID: 3542366401087286053, guid: 487692deedfea7f4e86f4779532f4eb2, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.6942599
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4405384622867220976, guid: 487692deedfea7f4e86f4779532f4eb2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -288,18 +280,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4923843421563954491, guid: 487692deedfea7f4e86f4779532f4eb2, type: 3}
+      propertyPath: healthBarManager
+      value: 
+      objectReference: {fileID: 1714330091}
     - target: {fileID: 8652841141664733931, guid: 487692deedfea7f4e86f4779532f4eb2, type: 3}
       propertyPath: m_Name
       value: Goblin_Spear
       objectReference: {fileID: 0}
-    - target: {fileID: 8652841141664733931, guid: 487692deedfea7f4e86f4779532f4eb2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2861628151453728281, guid: 487692deedfea7f4e86f4779532f4eb2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1714330091}
   m_SourcePrefab: {fileID: 100100000, guid: 487692deedfea7f4e86f4779532f4eb2, type: 3}
 --- !u!1 &206659788
 GameObject:
@@ -6156,13 +6151,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 321809814192712566, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 24ce91f96fab5014380c391871262350, type: 2}
+    - target: {fileID: 321809814192712566, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
+      propertyPath: healthBarManager
+      value: 
+      objectReference: {fileID: 1068783522}
     - target: {fileID: 2923015469598074941, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionId
-      value: 2e6a43f2-5091-411e-a439-fe3ee9b4be23
+      value: b29ae27f-1cca-4f35-bb36-7ade49e87ea8
       objectReference: {fileID: 0}
     - target: {fileID: 2923015469598074941, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionName
-      value: UI/Place Sign[/Keyboard/t]
+      value: Gameplay/Place Sign[/Keyboard/t,/XInputControllerWindows/select]
       objectReference: {fileID: 0}
     - target: {fileID: 2923015469598074941, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -6186,6 +6189,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3662117651014073143, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6079655388539312226, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6160135617207943596, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
@@ -6228,10 +6235,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8637813286076384809, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7256593797337892576, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1068783522}
   m_SourcePrefab: {fileID: 100100000, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
 --- !u!4 &542514389 stripped
 Transform:
@@ -48031,6 +48045,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1068783517 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7256593797337892576, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
+  m_PrefabInstance: {fileID: 542514388}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1068783522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068783517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89720df9391910342840c7d80c6529d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1194474370
 GameObject:
   m_ObjectHideFlags: 0
@@ -48661,6 +48692,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1714330086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2861628151453728281, guid: 487692deedfea7f4e86f4779532f4eb2, type: 3}
+  m_PrefabInstance: {fileID: 164547999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1714330091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714330086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89720df9391910342840c7d80c6529d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1721085820
 GameObject:
   m_ObjectHideFlags: 0

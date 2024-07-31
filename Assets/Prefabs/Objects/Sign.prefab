@@ -275,8 +275,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7464060961156860456}
         m_TargetAssemblyTypeName: Sign, Assembly-CSharp
-        m_MethodName: ReadStringInputMessage
-        m_Mode: 0
+        m_MethodName: SaveJSONFile
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -331,8 +331,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8376097681301940646}
   - component: {fileID: 2589178215661619797}
-  - component: {fileID: 7464060961156860456}
   - component: {fileID: 899254203298499414}
+  - component: {fileID: 7464060961156860456}
   m_Layer: 0
   m_Name: Sign
   m_TagString: Untagged
@@ -408,22 +408,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7464060961156860456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335328004873671730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6677e5dd02845ae43917898cb68c6a14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMessageInputField: {fileID: 4673009865210911564}
-  playerMessage: 
-  signPosition: {fileID: 8376097681301940646}
-  ui: {fileID: 4351072058845240722}
 --- !u!61 &899254203298499414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -469,6 +453,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3160653, y: 0.31606525}
   m_EdgeRadius: 0
+--- !u!114 &7464060961156860456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335328004873671730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6677e5dd02845ae43917898cb68c6a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 4351072058845240722}
+  inputFieldMessage: {fileID: 4673009865210911564}
+  signPositionArray:
+  - 0
+  - 0
 --- !u!1 &4351072058845240722
 GameObject:
   m_ObjectHideFlags: 0

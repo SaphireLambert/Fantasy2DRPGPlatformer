@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class Stats : CoreComponent
 {
+    [SerializeField]
+    private PlayerData playerData;
+    [SerializeField]
+    private HealthBarManager healthBarManager;
+
     public event Action OnHealthZero;
 
     [SerializeField]
@@ -14,13 +19,21 @@ public class Stats : CoreComponent
     protected override void Awake()
     {
         base.Awake();
+        if (gameObject.CompareTag("Player"))
+        {
+            maxHealth = playerData.maxHealth;
+            currentHealth = playerData.currentHealth;
 
+        } 
         currentHealth = maxHealth;
     }
 
     public void DecreaseHealth(float amount)
     {
         currentHealth -= amount;
+
+        healthBarManager.UpdateHealth(currentHealth, maxHealth);
+
         if(currentHealth <= 0)
         {
             currentHealth = 0;

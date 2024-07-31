@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c40b844d55ce147bf7f875e11ddb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
   maxHealth: 100
 --- !u!1 &2667185082029109677
 GameObject:
@@ -817,7 +818,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 588018749581226581}
   m_HandleRect: {fileID: 0}
@@ -985,8 +986,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.084525466, y: -0.7687788}
-  m_Size: {x: 0.58975625, y: 1.1291094}
+  m_Offset: {x: -0.084525466, y: -0.6942599}
+  m_Size: {x: 0.58975625, y: 0.98007154}
   m_Direction: 0
 --- !u!50 &500049953660404439
 Rigidbody2D:
