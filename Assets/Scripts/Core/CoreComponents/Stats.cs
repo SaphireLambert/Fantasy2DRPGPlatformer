@@ -23,7 +23,6 @@ public class Stats : CoreComponent
         {
             maxHealth = playerData.maxHealth;
             currentHealth = playerData.currentHealth;
-
         } 
         currentHealth = maxHealth;
     }
