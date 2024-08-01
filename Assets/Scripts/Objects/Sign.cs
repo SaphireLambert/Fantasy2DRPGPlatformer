@@ -4,7 +4,6 @@ using System.IO;
 using TMPro;
 using UnityGoogleDrive;
 using UnityEngine;
-using System.Runtime.CompilerServices;
 using System.Text;
 
 public class Sign : MonoBehaviour
@@ -53,6 +52,9 @@ public class Sign : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This creates a Json file on the local drive 
+    /// </summary>
     public void SaveJSONFile() //This creates the json file with all the info from the sign; 
     {
         if (inputFieldMessage.text == "")
@@ -99,25 +101,40 @@ public class Sign : MonoBehaviour
         }
     }
 
-
-    public IEnumerator CreateJsonFiles()  //Creates and stores the json file in my google drive
+    /// <summary>
+    /// Creates a Json File on my google drive associateded with my Student Account;
+    /// </summary>
+    public IEnumerator CreateJsonFiles()  
     {
         var content = Encoding.ASCII.GetBytes(jsonData);
         var file = new UnityGoogleDrive.Data.File() { Name = signFileName, Content = content };
+
+                
         var request = GoogleDriveFiles.Create(file);
+        
+        //Does the same as appendalltext (I think) updates the file with new data;
+        //tried wrapping the var request above in a if(file!=null) to create the file if there is no file already present
+        //this didn't work the editor reported null reference for the data ID;
+        
+        //request = GoogleDriveFiles.Update(jsonData, file);
+
+
         request.Fields = new List<string> { "id" };
         yield return request.Send();
+
         print(request.IsError);
         print(request.RequestData.Content);
         print(request.ResponseData.Id);
     }
 
-    public IEnumerator DownloadJsonFiles()  //Saves the specific document that the id is from to the project
+    public IEnumerator DownloadJsonFiles()  //Saves the specific document that the id is from to the google drive to a local drove the project is in. 
     {
         var request = GoogleDriveFiles.Download("1lA2KWEVGMUaPqHKA8QWBXjEs6OnvqnpD"); //reference to the document ID
         yield return request.Send();
+
         print(request.IsError);
-        print (request.ResponseData.Content);
+        print(request.ResponseData.Content);
+
         downLoadedContent = request.ResponseData.Content;
 
         string json = Encoding.ASCII.GetString(downLoadedContent);
