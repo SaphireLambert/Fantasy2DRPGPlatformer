@@ -44,7 +44,7 @@ public class CollisionSenses : CoreComponent
     /// These are the distances for the checks to see how big the check range is
     /// </summary>
     [SerializeField] 
-    private float groundCheckRadius = 0.3f;
+    private float groundCheckRadius = 0.15f;
     [SerializeField]
     private float wallCheckDistance = 0.1f;
     [SerializeField]

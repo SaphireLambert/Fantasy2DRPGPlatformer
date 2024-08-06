@@ -32,7 +32,7 @@ public class Sign : MonoBehaviour
         fullFilePath = Path.Combine(folderPath, signFileName);
 
         StartCoroutine("DownloadJsonFiles");
-
+        //LoadJSONFile();
 
         UI.SetActive(false);
     }

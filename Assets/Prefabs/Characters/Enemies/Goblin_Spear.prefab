@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 0}
+  healthBarManager: {fileID: 6948817232386956908}
   maxHealth: 100
 --- !u!1 &2667185082029109677
 GameObject:
@@ -179,6 +180,7 @@ GameObject:
   - component: {fileID: 2847799656429830316}
   - component: {fileID: 8821822552741306133}
   - component: {fileID: 3130276215158055875}
+  - component: {fileID: 6948817232386956908}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -269,6 +271,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6948817232386956908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861628151453728281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89720df9391910342840c7d80c6529d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2878736733644844440
 GameObject:
   m_ObjectHideFlags: 0
