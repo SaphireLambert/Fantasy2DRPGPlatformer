@@ -110,13 +110,9 @@ public class Sign : MonoBehaviour
         var file = new UnityGoogleDrive.Data.File() { Name = signFileName, Content = content };
 
                 
-        var request = GoogleDriveFiles.Create(file);
+        //var request = GoogleDriveFiles.Create(file); //Creates a new file with the new data
         
-        //Does the same as appendalltext (I think) updates the file with new data;
-        //tried wrapping the var request above in a if(file!=null) to create the file if there is no file already present
-        //this didn't work the editor reported null reference for the data ID;
-        
-        //request = GoogleDriveFiles.Update(jsonData, file);
+       var request = GoogleDriveFiles.Update("1lA2KWEVGMUaPqHKA8QWBXjEs6OnvqnpD",  file); //Updates current file replacing old data with new data
 
 
         request.Fields = new List<string> { "id" };
@@ -139,7 +135,7 @@ public class Sign : MonoBehaviour
 
         string json = Encoding.ASCII.GetString(downLoadedContent);
 
-        string jsonSaver = Application.dataPath + "/" + signFileName;
+        string jsonSaver = Application.streamingAssetsPath + "/" + signFileName;
 
         if(File.Exists(jsonSaver))
         {
