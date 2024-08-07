@@ -38,8 +38,6 @@ public class Stats : CoreComponent
             currentHealth = 0;
 
             OnHealthZero?.Invoke();
-
-            Debug.Log("Character has died (Health is 0)");
         }
     }
 

@@ -31,6 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4157924037450618964}
+  - {fileID: 1769980829103609313}
   m_Father: {fileID: 2867528518845871599}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8557474126822125189
@@ -46,9 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundCheck: {fileID: 4157924037450618964}
-  wallCheck: {fileID: 4157924037450618964}
+  wallCheck: {fileID: 1769980829103609313}
   ledgeCheckVertical: {fileID: 4157924037450618964}
-  groundCheckRadius: 0.3
+  groundCheckRadius: 0.05
   wallCheckDistance: 0.3
   ledgeCheckDistance: 0.3
   groundLayerMask:
@@ -547,7 +548,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 311776871089304138}
   m_HandleRect: {fileID: 0}
@@ -843,19 +844,7 @@ MonoBehaviour:
     m_ActionId: be6f87f2-5e76-4725-af44-efe056eb7057
     m_ActionName: Gameplay/Primary Attack[/Keyboard/comma]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5389280439047244145}
-        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
-        m_MethodName: OnSecondaryAttackInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 540e668a-4b4c-47c6-9693-f898da6e4d8b
     m_ActionName: Gameplay/Secondary Attack[/Keyboard/period]
   - m_PersistentCalls:
@@ -872,8 +861,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 39dd1ffd-a1ae-41f0-8f82-d6de94ad38d4
-    m_ActionName: Gameplay/New action
+    m_ActionId: b29ae27f-1cca-4f35-bb36-7ade49e87ea8
+    m_ActionName: Gameplay/Place Sign[/Keyboard/t,/XInputControllerWindows/select]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Controller
   m_DefaultActionMap: Gameplay
@@ -1261,7 +1250,7 @@ GameObject:
   - component: {fileID: 321809814192712566}
   m_Layer: 7
   m_Name: Stats
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1293,6 +1282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c40b844d55ce147bf7f875e11ddb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 24ce91f96fab5014380c391871262350, type: 2}
+  healthBarManager: {fileID: 6675005997066007410}
   maxHealth: 100
 --- !u!1 &6886815825452231283
 GameObject:
@@ -1337,6 +1328,7 @@ GameObject:
   - component: {fileID: 8804285998426965268}
   - component: {fileID: 7239440745206927683}
   - component: {fileID: 7240110650807739448}
+  - component: {fileID: 6675005997066007410}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1427,6 +1419,49 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6675005997066007410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7256593797337892576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89720df9391910342840c7d80c6529d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7350269174449495244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1769980829103609313}
+  m_Layer: 7
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1769980829103609313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350269174449495244}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.347, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5119727785830970653}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8295319126014652847
 GameObject:
   m_ObjectHideFlags: 0

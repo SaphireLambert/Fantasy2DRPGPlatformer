@@ -7,14 +7,27 @@ public class Player : MonoBehaviour
     #region State Variables
     [SerializeField]
     private PlayerData playerData;
+
     public PlayerStateMachiene StateMachiene {  get; private set; } 
+
     public PlayerIdleState IdleState { get; private set; }
+
     public PlayerMoveState MoveState { get; private set; }
+
     public PlayerJumpState JumpState { get; private set; }
+
     public PlayerInAirState InAirState { get; private set; }
+
     public PlayerLandState LandState { get; private set; }
+
+    public PlayerWallSlideState WallSlideState { get; private set; }
+
+    public PlayerWallJumpState WallJumpState { get; private set; }
+
     public PlayerAttackState PrimaryAttackState { get; private set; }
+
     public PlayerAttackState SecondAttackState { get;private set; }
+
     #endregion
 
     #region Components
@@ -42,6 +55,9 @@ public class Player : MonoBehaviour
         JumpState = new PlayerJumpState(this, StateMachiene, playerData, "In Air");
         InAirState = new PlayerInAirState(this, StateMachiene, playerData, "In Air");
         LandState = new PlayerLandState(this, StateMachiene, playerData, "Landed");
+        WallSlideState = new PlayerWallSlideState(this, StateMachiene, playerData, "Wall Slide");
+        WallJumpState = new PlayerWallJumpState(this, StateMachiene, playerData, "In Air");
+
 
         PrimaryAttackState = new PlayerAttackState(this, StateMachiene, playerData, "Attack");
         SecondAttackState = new PlayerAttackState(this, StateMachiene, playerData, "Attack");

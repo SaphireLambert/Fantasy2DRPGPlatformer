@@ -13,6 +13,8 @@ public class PlayerInAirState : PlayerState
     private int xInput;
 
     private bool isGrounded;
+    private bool isTouchingWall;
+    private bool isTouchingWallBehind;
     private bool jumpInput;
     private bool jumpInputStop;
     private bool coyoteTime;
@@ -28,6 +30,8 @@ public class PlayerInAirState : PlayerState
         if(CollisionSenses)
         {
             isGrounded = CollisionSenses.isGroundedBool;
+            isTouchingWall = CollisionSenses.isHittingWallBool;
+            isTouchingWallBehind = CollisionSenses.isHittingWallBehindBool;
         } 
     }
 
@@ -55,19 +59,29 @@ public class PlayerInAirState : PlayerState
 
         if (player.InputHandler.AttackInputs[(int)CombatInputs.primary])
         {
-            stateMachiene.ChangeState(player.PrimaryAttackState);
+            stateMachine.ChangeState(player.PrimaryAttackState);
         }
         else if (player.InputHandler.AttackInputs[(int)CombatInputs.secondary])
         {
-            stateMachiene.ChangeState(player.SecondAttackState);
+            stateMachine.ChangeState(player.SecondAttackState);
         }
         else if (isGrounded && Movement?.CurrentVelocity.y < 0.01f)
         {
-            stateMachiene.ChangeState(player.LandState);
+            stateMachine.ChangeState(player.LandState);
+        }
+        else if (jumpInput && (isTouchingWall || isTouchingWallBehind))
+        {
+            player.WallJumpState.DetermineWallJumpDirection(CollisionSenses.isHittingWallBool);
+            stateMachine.ChangeState(player.WallJumpState);
         }
         else if (jumpInput && player.JumpState.CanJump())
         {
-            stateMachiene.ChangeState(player.JumpState);
+            player.InputHandler.UseJumpInput();
+            stateMachine.ChangeState(player.JumpState);
+        }
+        else if(isTouchingWall && xInput == movement.FacingDirection)
+        {
+            stateMachine.ChangeState(player.WallSlideState);
         }
         else
         {

@@ -11,6 +11,9 @@ using UnityEngine;
  
 public class CollisionSenses : CoreComponent
 {
+    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
     #region Check Transforms
     public Transform GroundCheck //Reference to the ground check trasnform 
     { 
@@ -64,7 +67,11 @@ public class CollisionSenses : CoreComponent
     }
     public bool isHittingWallBool //returns true when the character come in contact with a wall
     {
-        get => Physics2D.Raycast(wallCheck.position, Vector2.right, wallCheckDistance);
+        get => Physics2D.Raycast(wallCheck.position, Vector2.right * Movement.FacingDirection, wallCheckDistance, groundLayerMask);
+    }
+    public bool isHittingWallBehindBool //returns true when the character come in contact with a wall
+    {
+        get => Physics2D.Raycast(wallCheck.position, Vector2.right * -Movement.FacingDirection, wallCheckDistance, groundLayerMask);
     }
     public bool isOnLedgeBool //Returns false if the character has found a ledge: Returns true if there is no ledge
     {

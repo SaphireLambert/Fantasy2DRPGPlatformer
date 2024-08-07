@@ -7,10 +7,11 @@ public class PlayerState
     protected Core core;
 
     protected Player player;  //Reference to script
-    protected PlayerStateMachiene stateMachiene;  //Reference to script
+    protected PlayerStateMachiene stateMachine;  //Reference to script
     protected PlayerData playerData;  //Reference to script
 
     protected bool isAnimationFinished;
+    protected bool isExitingState;
 
     protected float startTime; //The starting time for the state/animation
 
@@ -19,7 +20,7 @@ public class PlayerState
     public PlayerState(Player player, PlayerStateMachiene stateMachiene, PlayerData playerData, string animBoolName)
     {
         this.player = player;
-        this.stateMachiene = stateMachiene;
+        this.stateMachine = stateMachiene;
         this.playerData = playerData;
         this.animBoolName = animBoolName;
         core = player.Core;
@@ -31,11 +32,13 @@ public class PlayerState
         player.Animator.SetBool(animBoolName, true);
         startTime = Time.time;
         isAnimationFinished = false;
+        isExitingState = false;
     }
 
     public virtual void Exit() //Function for exiting the state
     {
         player.Animator.SetBool(animBoolName, false);
+        isExitingState = true;
     }
 
     public virtual void LogicUpdate() //Fuction that acts as unitys Update - Updates the state every frame
