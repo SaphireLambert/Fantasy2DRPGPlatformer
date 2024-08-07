@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHealth: 200
   currentHealth: 0
   movementVelocity: 10
-  jumpVelocity: 18
+  jumpVelocity: 20
   amountOfJumps: 1
   coyoteTime: 0.2
   variableJumpHeightMultiplier: 0.5
