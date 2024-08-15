@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundCheck: {fileID: 4157924037450618964}
   wallCheck: {fileID: 1769980829103609313}
-  ledgeCheckVertical: {fileID: 4157924037450618964}
+  ledgeCheckVertical: {fileID: 0}
   groundCheckRadius: 0.05
   wallCheckDistance: 0.3
   ledgeCheckDistance: 0.3
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1431,6 +1431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89720df9391910342840c7d80c6529d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBarSlider: {fileID: 8637813286076384809}
 --- !u!1 &7350269174449495244
 GameObject:
   m_ObjectHideFlags: 0

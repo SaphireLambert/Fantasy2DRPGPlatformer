@@ -11,6 +11,6 @@ public class HealthBarManager : MonoBehaviour
 
     public void UpdateHealth(float currentHealth, float maxHealth)
     {
-        healthBarSlider.value = currentHealth;
+        healthBarSlider.value = currentHealth / maxHealth * 100;
     }
 }

@@ -12,6 +12,11 @@ public class SpikeTrap : CoreComponent
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("Hurt Player");
+        }
+        
         foreach (IDamageable item in detectedDamageable.ToList())
         {
             item.Damage(1000000000f);
