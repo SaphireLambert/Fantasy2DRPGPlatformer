@@ -25,6 +25,8 @@ public class Stats : CoreComponent
             currentHealth = playerData.currentHealth;
         } 
         currentHealth = maxHealth;
+
+        healthBarManager.UpdateHealth(currentHealth, maxHealth);
     }
 
     public void DecreaseHealth(float amount)
