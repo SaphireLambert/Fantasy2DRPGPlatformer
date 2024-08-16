@@ -3755,9 +3755,31 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 311776871089304138, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -4.922699
+=======
+    - target: {fileID: 1145342398664971740, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -25.982819
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972442785618907278, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 53.6013
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972442785618907278, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -30.6348
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972442785618907278, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972442785618907278, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 3662117651014073143, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
       propertyPath: m_Name
@@ -3803,9 +3825,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 8637813286076384809, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
       propertyPath: m_Value
       value: 100
+=======
+    - target: {fileID: 8778599150341952183, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -56.3195
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778599150341952183, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -28.2
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
