@@ -29,11 +29,16 @@ public class Stats : CoreComponent
         healthBarManager.UpdateHealth(currentHealth, maxHealth);
     }
 
+    private void Update()
+    {
+        healthBarManager.UpdateHealth(currentHealth, maxHealth);
+    }
+
     public void DecreaseHealth(float amount)
     {
         currentHealth -= amount;
 
-        healthBarManager.UpdateHealth(currentHealth, maxHealth);
+        //healthBarManager.UpdateHealth(currentHealth, maxHealth);
 
         if(currentHealth <= 0)
         {
