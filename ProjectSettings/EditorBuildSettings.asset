@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: a3281bb49a3342047b084af0dfb07321
+  - enabled: 1
     path: Assets/Scenes/Grassy Scene/Level0(Tutorial).unity
     guid: 280057c320af60744b732ae0a5841c92
   m_configObjects: {}

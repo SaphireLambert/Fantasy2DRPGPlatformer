@@ -29,7 +29,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     private float jumpInputStartTime;
 
-    private PlayerInput playerInput;
+    public PlayerInput playerInput;
 
     private void Start()
     {
