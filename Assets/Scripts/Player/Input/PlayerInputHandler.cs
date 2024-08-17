@@ -25,6 +25,9 @@ public class PlayerInputHandler : MonoBehaviour
     public bool[] AttackInputs { get; private set; }
 
     [SerializeField]
+    private GameObject pauseMenuUI;
+
+    [SerializeField]
     private float inputHoldTime = 0.15f;
 
     private float jumpInputStartTime;
@@ -37,6 +40,7 @@ public class PlayerInputHandler : MonoBehaviour
 
         int count = Enum.GetValues(typeof(CombatInputs)).Length;    
         AttackInputs = new bool[count];
+        pauseMenuUI.SetActive(false);
     }
 
     private void Update()
@@ -104,6 +108,12 @@ public class PlayerInputHandler : MonoBehaviour
             //Place the sign
             Instantiate(sign, signSpawn.position, Quaternion.identity);
         }
+    }
+
+    public void OnPauseGame(InputAction.CallbackContext context)
+    {
+        playerInput.SwitchCurrentActionMap("UI");
+        pauseMenuUI.SetActive(true);
     }
 
 }
