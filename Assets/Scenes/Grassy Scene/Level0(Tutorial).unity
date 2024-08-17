@@ -3755,10 +3755,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 311776871089304138, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -4.922699
-      objectReference: {fileID: 0}
     - target: {fileID: 3662117651014073143, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3802,10 +3798,6 @@ PrefabInstance:
     - target: {fileID: 6160135617207943596, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8637813286076384809, guid: 42dcd8f43478d5d4a9ccca0cf0f69983, type: 3}
-      propertyPath: m_Value
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

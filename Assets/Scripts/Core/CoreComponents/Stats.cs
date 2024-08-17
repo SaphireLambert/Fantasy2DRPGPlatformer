@@ -25,11 +25,8 @@ public class Stats : CoreComponent
             currentHealth = playerData.currentHealth;
         } 
         currentHealth = maxHealth;
-
-        healthBarManager.UpdateHealth(currentHealth, maxHealth);
     }
-
-    private void Update()
+    private void Start()
     {
         healthBarManager.UpdateHealth(currentHealth, maxHealth);
     }
@@ -38,7 +35,7 @@ public class Stats : CoreComponent
     {
         currentHealth -= amount;
 
-        //healthBarManager.UpdateHealth(currentHealth, maxHealth);
+        healthBarManager.UpdateHealth(currentHealth, maxHealth);
 
         if(currentHealth <= 0)
         {
