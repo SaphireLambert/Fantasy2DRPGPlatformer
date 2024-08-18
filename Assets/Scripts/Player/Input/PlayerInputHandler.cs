@@ -114,6 +114,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         playerInput.SwitchCurrentActionMap("UI");
         pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
 }
