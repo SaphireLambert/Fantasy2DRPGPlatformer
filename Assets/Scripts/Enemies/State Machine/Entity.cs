@@ -58,6 +58,7 @@ public class Entity : MonoBehaviour
         get => Physics2D.Raycast(playerCheck.position, transform.right, entityData.closeRangeActionDistance, entityData.playerLayerMask);
     }
 
+    //So I can see how far the player must be to the enemy before it sees the player and is in range for an attack. 
     //private void OnDrawGizmos()
     //{
     //    Gizmos.DrawLine(transform.position, playerCheck.position + (Vector3)(Vector2.right * entityData.maxAgroDistance * Core.Movement.FacingDirection));

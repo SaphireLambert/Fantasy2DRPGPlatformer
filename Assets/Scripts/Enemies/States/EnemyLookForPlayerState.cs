@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Unity.Jobs;
 public class EnemyLookForPlayerState : EnemiesState
 {
     protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
@@ -12,12 +12,12 @@ public class EnemyLookForPlayerState : EnemiesState
 
     protected D_EnemyLookForPlayer stateData;
 
-    protected bool turnImmediatley;
+    protected bool turnImmediatley; //Flip the character in the oposite direction
     protected bool isPlayerInMinAgroRange;
     protected bool isAllTurnsDone; //Checks how many turns the enemy has made and returns true if all have been made.
     protected bool isAllTurnsTimeDone; //Does the same as aboive but instead of tracking the turns themsleves traks the time it takes before the enemies decid to turn again. 
 
-    protected float lastTurnTime;
+    protected float lastTurnTime; //Time since the last turn/flip the character did
 
     protected int amountOfTurnsDone;
 
@@ -82,10 +82,7 @@ public class EnemyLookForPlayerState : EnemiesState
         }
     }
 
-public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-    }
+    public override void PhysicsUpdate() => base.PhysicsUpdate();
     public void SetTurnImmeduately(bool flip)
     {
         turnImmediatley = flip;

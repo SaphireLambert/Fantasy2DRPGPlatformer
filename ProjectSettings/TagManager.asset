@@ -16,7 +16,7 @@ TagManager:
   - Enemy
   - Weapon
   - Damageable
-  - 
+  - Trees
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 2074511413
+    locked: 0
+  - name: Trees
+    uniqueID: 3585474341
     locked: 0
   - name: Ground
     uniqueID: 2848805731
