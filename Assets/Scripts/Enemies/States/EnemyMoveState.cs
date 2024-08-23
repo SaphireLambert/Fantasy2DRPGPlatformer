@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Jobs;
 using UnityEngine;
-
+using System.Threading;
 public class EnemyMoveState : EnemiesState
 {
     private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
@@ -51,7 +51,8 @@ public class EnemyMoveState : EnemiesState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        Movement?.SetVelocityX(stateData.MovementSpeed * Movement.FacingDirection);    
+
+        Thread threadOne = new Thread(() => Movement?.SetVelocityX(stateData.MovementSpeed * Movement.FacingDirection));
     }
 
     public override void PhysicsUpdate()
